@@ -3,7 +3,7 @@ import Button from "../Elements/Button";
 /* Nested Component */
 const CardProduct = ({ children }) => {
   return (
-    <div className="w-full max-w-xs bg-gray-800 border border-gray-700 my-2 rounded-lg shadow mx-3">
+    <div className="w-fit md:w-4/6 bg-gray-800 border border-gray-700 my-2 rounded-lg shadow mx-3">
       {children}
     </div>
   );
@@ -36,7 +36,7 @@ const Footer = ({ price, handleAddToCart, id }) => {
       <span className="text-xl fobold text-white">
         {price.toLocaleString("id-ID", { style: "currency", currency: "IDR" })}
       </span>
-      <Button variant="bg-blue-600" onClick={() => handleAddToCart(id)}>
+      <Button variant="bg-blue-600 text-xs" onClick={() => handleAddToCart(id)}>
         Add to Cart
       </Button>
     </div>

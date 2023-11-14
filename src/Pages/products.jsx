@@ -1,6 +1,7 @@
 import { Fragment, useState } from "react";
 import CardProduct from "../components/Fragments/CardProduct";
 import Button from "../components/Elements/Button";
+import Counter from "../components/Fragments/Counter";
 
 const products = [
   {
@@ -69,7 +70,7 @@ const ProductPage = () => {
   const handleLogout = () => {
     localStorage.removeItem("email");
     localStorage.removeItem("password");
-    window.location.href = "/login";
+    window.location.href = "/";
   };
 
   return (
@@ -80,8 +81,8 @@ const ProductPage = () => {
           Logout
         </Button>
       </div>
-      <div className="flex justify-center py-5">
-        <div className="w-4/6 flex flex-wrap ">
+      <div className="flex flex-col md:flex-row justify-center items-center md:items-start py-5">
+        <div className="w-full md:w-full flex justify-center flex-wrap order-2 md:order-1">
           {products.map((product) => (
             <CardProduct key={product.id}>
               <CardProduct.Header image={product.image}></CardProduct.Header>
@@ -96,7 +97,8 @@ const ProductPage = () => {
             </CardProduct>
           ))}
         </div>
-        <div className="w-2/6">
+
+        <div className="w-full order-1 md:order-2 overflow-scroll text-xs">
           <h1 className="text-3xl font-bold text-blue-600 ml-5 mb-2">Cart</h1>
           <table className="text-left table-auto border-separate border-spacing-x-5">
             <thead>
